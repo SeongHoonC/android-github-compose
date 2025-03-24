@@ -120,4 +120,58 @@ class NextStepReposScreenTest {
         // then: 로딩이 보인다.
         composeTestRule.onNodeWithTag("loading_indicator").assertIsDisplayed()
     }
+
+    @Test
+    fun 별이_50개_이상이면_HOT이_보인다() {
+        // Given: 별이 50개인 인기 저장소
+        val popularRepo = GithubRepo(
+            fullName = "next-step/nextstep-docs",
+            description = "nextstep 매뉴얼 및 문서를 관리하는 저장소",
+            stargazersCount = StargazersCount(50)
+        )
+        val uiState = NextStepReposUiState(
+            uiState = UiState.Success,
+            nextStepRepos = listOf(popularRepo)
+        )
+
+        // When: NextStepReposScreen을 렌더링
+        composeTestRule.setContent {
+            NextStepReposScreen(
+                uiState = uiState,
+                snackbarHostState = SnackbarHostState()
+            )
+        }
+
+        // Then: "HOT" 레이블이 표시되어야 함
+        composeTestRule.onNodeWithText("HOT").assertIsDisplayed()
+        // Then: 별 개수가 표시되어야 함
+        composeTestRule.onNodeWithText("50").assertIsDisplayed()
+    }
+
+    @Test
+    fun 별이_50개_미만이면_HOT이_보이지_않는다() {
+        // Given: 별이 50개 미만인 인기 저장소
+        val notPopularRepo = GithubRepo(
+            fullName = "next-step/nextstep-docs",
+            description = "nextstep 매뉴얼 및 문서를 관리하는 저장소",
+            stargazersCount = StargazersCount(49)
+        )
+        val uiState = NextStepReposUiState(
+            uiState = UiState.Success,
+            nextStepRepos = listOf(notPopularRepo)
+        )
+
+        // When: NextStepReposScreen을 렌더링
+        composeTestRule.setContent {
+            NextStepReposScreen(
+                uiState = uiState,
+                snackbarHostState = SnackbarHostState()
+            )
+        }
+
+        // Then: "HOT" 레이블이 표시되지 않아야 함
+        composeTestRule.onNodeWithText("HOT").assertIsNotDisplayed()
+        // Then: 별 개수가 표시되어야 함
+        composeTestRule.onNodeWithText("49").assertIsDisplayed()
+    }
 }
