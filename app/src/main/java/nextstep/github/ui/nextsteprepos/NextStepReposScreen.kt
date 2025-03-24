@@ -36,6 +36,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.flow.collectLatest
 import nextstep.github.R
 import nextstep.github.domain.model.GithubRepo
+import nextstep.github.domain.model.StargazersCount
 import nextstep.github.ui.preview.BackgroundPreview
 import nextstep.github.ui.theme.GithubTheme
 
@@ -184,9 +185,9 @@ private fun NextStepRepoPopularityLabel(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End
     ) {
-        if (githubRepo.isPopular) {
+        if (githubRepo.stargazersCount.isPopular) {
             Text(
-                text = "HOT",
+                text = stringResource(R.string.nextstep_repos_popular_label),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.weight(1f)
@@ -194,9 +195,12 @@ private fun NextStepRepoPopularityLabel(
         }
 
         Row {
-            Icon(painterResource(R.drawable.ic_star_18), contentDescription = null)
+            Icon(
+                painter = painterResource(R.drawable.ic_star_18),
+                contentDescription = null
+            )
             Text(
-                "${githubRepo.stargazersCount}",
+                "${githubRepo.stargazersCount.value}",
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary
             )
@@ -215,7 +219,7 @@ private fun NextStepReposScreenPreview() {
                     GithubRepo(
                         fullName = "next-step/nextstep-docs-$it",
                         description = "nextstep 매뉴얼 및 문서를 관리하는 저장소",
-                        stargazersCount = it * 20 % 100,
+                        stargazersCount = StargazersCount(it * 20 % 100),
                     )
                 }
             ),
@@ -246,7 +250,7 @@ private fun NextStepReposItemPreview() {
             githubRepo = GithubRepo(
                 fullName = "next-step/nextstep-docs",
                 description = "nextstep 매뉴얼 및 문서를 관리하는 저장소",
-                stargazersCount = 10
+                stargazersCount = StargazersCount(10)
             )
         )
     }

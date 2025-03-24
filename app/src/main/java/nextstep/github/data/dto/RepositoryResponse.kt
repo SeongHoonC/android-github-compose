@@ -3,6 +3,7 @@ package nextstep.github.data.dto
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import nextstep.github.domain.model.GithubRepo
+import nextstep.github.domain.model.StargazersCount
 
 @Serializable
 data class RepositoryResponse(
@@ -14,5 +15,5 @@ data class RepositoryResponse(
 fun RepositoryResponse.toGithubRepo() = GithubRepo(
     fullName = this.fullName ?: "",
     description = this.description ?: "",
-    stargazersCount = this.stargazersCount ?: 0,
+    stargazersCount = StargazersCount(this.stargazersCount ?: 0),
 )

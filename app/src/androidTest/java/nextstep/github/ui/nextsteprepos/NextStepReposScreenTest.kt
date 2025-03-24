@@ -8,6 +8,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performScrollToIndex
 import nextstep.github.domain.model.GithubRepo
+import nextstep.github.domain.model.StargazersCount
 import org.junit.Rule
 import org.junit.Test
 
@@ -23,7 +24,7 @@ class NextStepReposScreenTest {
             GithubRepo(
                 fullName = "next-step/nextstep-docs-$number",
                 description = "nextstep 매뉴얼 및 문서를 관리하는 저장소-$number",
-                stargazersCount = 30,
+                stargazersCount = StargazersCount(30),
             )
         }
         val uiState = NextStepReposUiState(
@@ -57,7 +58,7 @@ class NextStepReposScreenTest {
             GithubRepo(
                 fullName = "next-step/nextstep-docs-$number",
                 description = "nextstep 매뉴얼 및 문서를 관리하는 저장소-$number",
-                stargazersCount = 30,
+                stargazersCount = StargazersCount(30),
             )
         }
         val uiState = NextStepReposUiState(
