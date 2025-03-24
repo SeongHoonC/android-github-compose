@@ -8,9 +8,11 @@ import nextstep.github.model.GithubRepo
 data class RepositoryResponse(
     @SerialName("full_name") val fullName: String?,
     @SerialName("description") val description: String?,
+    @SerialName("stargazers_count") val stargazersCount: Int?,
 )
 
 fun RepositoryResponse.toGithubRepo() = GithubRepo(
     fullName = this.fullName ?: "",
     description = this.description ?: "",
+    stargazersCount = this.stargazersCount ?: 0,
 )

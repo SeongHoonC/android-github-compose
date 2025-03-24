@@ -180,7 +180,8 @@ private fun NextStepReposScreenPreview() {
                 nextStepRepos = List(20) { it ->
                     GithubRepo(
                         fullName = "next-step/nextstep-docs-$it",
-                        description = "nextstep 매뉴얼 및 문서를 관리하는 저장소"
+                        description = "nextstep 매뉴얼 및 문서를 관리하는 저장소",
+                        stargazersCount = 50,
                     )
                 }
             ),
@@ -210,7 +211,8 @@ private fun NextStepReposItemPreview() {
         NextStepRepoItem(
             githubRepo = GithubRepo(
                 fullName = "next-step/nextstep-docs",
-                description = "nextstep 매뉴얼 및 문서를 관리하는 저장소"
+                description = "nextstep 매뉴얼 및 문서를 관리하는 저장소",
+                stargazersCount = 10
             )
         )
     }

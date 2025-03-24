@@ -22,7 +22,8 @@ class NextStepReposScreenTest {
             val number = index + 1
             GithubRepo(
                 fullName = "next-step/nextstep-docs-$number",
-                description = "nextstep 매뉴얼 및 문서를 관리하는 저장소-$number"
+                description = "nextstep 매뉴얼 및 문서를 관리하는 저장소-$number",
+                stargazersCount = 30,
             )
         }
         val uiState = NextStepReposUiState(
@@ -55,7 +56,8 @@ class NextStepReposScreenTest {
             val number = index + 1
             GithubRepo(
                 fullName = "next-step/nextstep-docs-$number",
-                description = "nextstep 매뉴얼 및 문서를 관리하는 저장소-$number"
+                description = "nextstep 매뉴얼 및 문서를 관리하는 저장소-$number",
+                stargazersCount = 30,
             )
         }
         val uiState = NextStepReposUiState(
