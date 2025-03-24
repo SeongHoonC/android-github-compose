@@ -1,4 +1,4 @@
-package nextstep.github.model
+package nextstep.github.domain.model
 
 data class GithubRepo(
     val fullName: String,

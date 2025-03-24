@@ -2,7 +2,7 @@ package nextstep.github.data.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import nextstep.github.model.GithubRepo
+import nextstep.github.domain.model.GithubRepo
 
 @Serializable
 data class RepositoryResponse(

@@ -7,7 +7,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performScrollToIndex
-import nextstep.github.model.GithubRepo
+import nextstep.github.domain.model.GithubRepo
 import org.junit.Rule
 import org.junit.Test
 

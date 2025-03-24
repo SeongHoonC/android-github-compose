@@ -35,7 +35,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.flow.collectLatest
 import nextstep.github.R
-import nextstep.github.model.GithubRepo
+import nextstep.github.domain.model.GithubRepo
 import nextstep.github.ui.preview.BackgroundPreview
 import nextstep.github.ui.theme.GithubTheme
 
