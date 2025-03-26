@@ -128,8 +128,8 @@ fun NextStepReposScreen(
 
 @Composable
 private fun NextStepRepoRepos(
-    modifier: Modifier = Modifier,
-    uiState: NextStepReposUiState
+    uiState: NextStepReposUiState,
+    modifier: Modifier = Modifier
 ) {
     LazyColumn(
         modifier = modifier
@@ -178,10 +178,11 @@ private fun NextStepRepoItem(
 
 @Composable
 private fun NextStepRepoPopularityLabel(
-    githubRepo: GithubRepo
+    githubRepo: GithubRepo,
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End
     ) {
